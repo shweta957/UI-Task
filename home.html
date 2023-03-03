@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="box">
+            <button class="edit-button" type="button" onclick="enableEditing()">Edit</button>
+            <button class="delete-button" type="button" onclick="deleteForm()">Delete</button>
+        </div>
+        <div class="row justify-content-center">
+            
+            <div class="col-md-12">
+                <form id="my-form">
+                                <div class="center-img text-center">
+
+                                        <div class="profile-pic">
+                                            <img alt="User Pic" src="./download.png" id="profile-image1" height="200">
+                                            <input id="profile-image-upload" class="hidden" type="file" onchange="previewFile()" required>
+                                            <div style="color:#999;"> </div>
+                                        </div>
+                                </div>
+                    <div class="col">
+
+                        <h2>Business Interest</h2>
+                        <div class="row">
+                            <div class="col-md-4">
+                            <label for="name" class="label-name">ACTIVITIES</label></div>
+                            <div class="col-md-8">
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Buy">
+                            <label for="vehicle1"> Buy</label><br>
+                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Invest">
+                            <label for="vehicle2"> Invest</label><br>
+                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Partner">
+                            <label for="vehicle3"> Partner</label><br>
+                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Lease">
+                            <label for="vehicle3"> Lease</label><br>
+                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Franchise">
+                            <label for="vehicle3"> Franchise</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                            <label for="name" class="label-name">INDUSTRIES</label></div>
+                            <div class="col-md-8">
+                                <select name="cars" id="cars">
+                                    <option value="volvo">Education</option>
+                                    <option value="saab">Commerce</option>
+                                    <option value="opel">Construction</option>
+                                    <option value="audi">Food</option>
+                                  </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                            <label for="name" class="label-name" >LOCATION</label></div>
+                            <div class="col-md-8">
+                                <select class="custom-select" multiple>
+                                    <option selected>Open this select menu</option>
+                                    <option value="1">Ahmedabad</option>
+                                    <option value="2">Pune</option>
+                                    <option value="3">Bagalore</option>
+                                  </select>	
+                            </div>
+                        </div>
+                        
+                        
+                        <h2>Financial</h2>
+                        <div class="row">
+                            <div class="col-md-4">
+                            <label for="name" class="label-name">FUNDING SOURCE</label></div>
+                            <div class="col-md-8">
+                                <input type="radio" id="html" name="fav_language" value="HTML">
+                                 <label for="html">Own</label><br>
+                                <input type="radio" id="css" name="fav_language" value="CSS">
+                             <label for="css">Family & friends</label><br>
+                             <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                                <label for="javascript">Bank Loan</label><br>
+                                <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                                <label for="javascript">External investors</label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                            <label for="name" class="label-name">BUDGET</label></div>
+                            <div class="col-md-8">
+                                <label>1 crore to 2 crore</label>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="col">
+                       
+                        <h2>Personal</h2>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="phone" class="label-name">MOBILE</label></div>
+                            <div class="col-md-8">
+                                <input name="mobile"  id="mobile" type="text" placeholder="enter mobile number" required onkeyup="check(); return false;"><span id="message"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="phone" class="label-name">ZIP CODE</label></div>
+                            <div class="col-md-8">
+                                <input name="zipcode"  id="zipcode" type="text" placeholder="enter pincode" required onkeyup="myzipcode();">
+                                <p id="zipcode-alert">&nbsp;</p>
+                            </div>
+                        </div>
+
+                        <h2>Professional</h2>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="phone" class="label-name">COMPANY NAME</label></div>
+                            <div class="col-md-8">
+                                <input name="companyname" type="text" id="companyname" placeholder="company name" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label for="phone" class="label-name">SKILLS</label></div>
+                            <div class="col-md-8">
+
+                                  <select multiple onchange="updateTextBox(this)">
+                                    <option value="option1">Marketing</option>
+                                    <option value="option2">Electronics</option>
+                                    <option value="option3">Culinary</option>
+                                    <option value="option4">Others</option>
+                                  </select><br>
+                                  
+                                  <input type="text" id="selectedOptions" placeholder="Skills" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 text-center">
+                        <button class="submit-btn">Submit</button></div>
+                    </form>
+                </div>
+
+                    
+                
+            </div>
+        </div>
+    
+
+
+
+    <script>
+       function enableEditing() {
+  var formElements = document.getElementById("my-form").elements;
+  for (var i = 0; i < formElements.length; i++) {
+    formElements[i].disabled = false;
+  }
+}
+
+        function deleteForm() {
+            var form = document.getElementById("my-form");
+            form.parentNode.removeChild(form);
+        }
+
+        /*profile pic*/
+
+        function previewFile() {
+            var preview = document.querySelector('img');
+            var file = document.querySelector('input[type=file]').files[0];
+            var reader = new FileReader();
+
+            reader.addEventListener("load", function () {
+                preview.src = reader.result;
+            }, false);
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+        $(function () {
+            $('#profile-image1').on('click', function () {
+                $('#profile-image-upload').click();
+            });
+        });
+
+
+        /*multiple Select*/
+        $(document).ready(function(){
+  //Chosen
+  $(".multipleChosen").chosen({
+      placeholder_text_multiple: "What's your rating" //placeholder
+	});
+  
+})
+/*phone number*/
+function check()
+{
+
+    var mobile = document.getElementById('mobile');
+   
+    
+    var message = document.getElementById('message');
+
+   var goodColor = "#0C6";
+    var badColor = "#FF9B37";
+  
+    if(mobile.value.length!=10){
+       
+        mobile.style.backgroundColor = badColor;
+        message.style.color = badColor;
+        message.innerHTML = "required 10 digits, match requested format!"
+    }}
+
+    function myzipcode(){
+        var str = document.getElementById("zipcode").value;
+        var zipcodeAlert = document.getElementById("zipcode-alert");
+        if(!((/^[0-9]{6}$/.test(str)))){
+            zipcodeAlert.style.display= "block";
+            zipcodeAlert.innerHTML="must be 6 digit";
+            zipcodeFlag=false;
+        }
+        else{
+            zipcodeAlert.style.display= "none";
+            zipcodeFlag=true;
+        }
+    }
+
+    function updateTextBox(selectElement) {
+  var selectedOptions = Array.from(selectElement.selectedOptions).map(option => option.text);
+  document.getElementById("selectedOptions").value = selectedOptions.join(", ");
+}
+    </script>
+</body>
+
+</html>
